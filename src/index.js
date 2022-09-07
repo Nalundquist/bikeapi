@@ -5,9 +5,9 @@ import { theftLoc } from './biketheft.js';
 
 
 export function bikesResult(apiResponse){
-	const resultDisplay = document.getElementById("result-display");
-	document.getElementById("result-display").innerHTML = null;
-	console.log(apiResponse);
+	document.getElementById("result-box").innerHTML = null;
+	const resultDisplay = document.getElementById("result-box");
+  console.log(apiResponse);
 
 	for (let i=0; i < apiResponse.bikes.length; i++){
 		let bikeColors = apiResponse.bikes[i].frame_colors;
@@ -17,7 +17,7 @@ export function bikesResult(apiResponse){
 		let bikeSerial = apiResponse.bikes[i].serial;
 		const display1 = document.createElement("h4");
 		const display2 = document.createElement("p");
-		resultDisplay.after(display1);
+		resultDisplay.append(display1);
 		display1.append(`${bikeTitle}---Stolen ${bikeDate} ${bikeLoc}`);
 		display2.append(`Color: ${bikeColors.join(" ")} Serial Number: ${bikeSerial}`);
     display1.after(display2);
