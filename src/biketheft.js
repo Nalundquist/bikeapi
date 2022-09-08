@@ -12,7 +12,7 @@ export function theftLoc(loc, prox){
 			if(this.status === 200){
 				resolve(apiResponse);
 			} else {
-				reject ([this, apiResponse]);
+				reject (this);
 			}
 		})
 		apiRequest.open("GET", url, true);
@@ -21,8 +21,8 @@ export function theftLoc(loc, prox){
 
 	bikePromise.then(function(apiResponse){
 		bikesResult(apiResponse);
-	}, function(apiRequest, apiResponse) {
-		bikesError(apiRequest, apiResponse);
+	}, function(errorMsg) {
+		bikesError(errorMsg);
 	})
 }
 

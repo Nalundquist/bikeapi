@@ -1,3 +1,36 @@
 body{
 	background-color: aquamarine;
 }
+
+.top-bar{
+	background-color: skyblue;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	text-align: center;
+	padding-left: 5%;
+	padding-right: 8%;
+	margin-bottom: 40px;
+	border-bottom: 4px solid blanchedalmond;
+
+}
+
+.search-box{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 12%;
+	border-bottom: 4px solid blanchedalmond;
+}
+
+.result-display{
+	padding-top: 40px;
+	padding-bottom: 20px;
+	padding-left: 8%;
+	font-style: italic;
+	background-color: cornflowerblue;
+	font-weight: bold;
+
+}
+
+.hidden{
+	display: none;
+}

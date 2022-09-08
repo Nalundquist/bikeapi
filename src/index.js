@@ -7,14 +7,24 @@ import { theftLoc } from './biketheft.js';
 export function bikesResult(apiResponse){
 	document.getElementById("result-box").innerHTML = null;
 	const resultDisplay = document.getElementById("result-box");
-  console.log(apiResponse);
+	resultDisplay.removeAttribute("class", "result-display");
+	resultDisplay.setAttribute("class", "hidden")
+	
+	let bikeMfgTally = [];
+	let bikeColorTally = [];
 
 	for (let i=0; i < apiResponse.bikes.length; i++){
 		let bikeColors = apiResponse.bikes[i].frame_colors;
+		bikeColors.forEach(element => {
+			bikeColorTally.push(element);
+		})
+		console.log(bikeColorTally);
 		let bikeTitle = apiResponse.bikes[i].title;
 		let bikeDate = new Date(apiResponse.bikes[i].date_stolen * 1000);
 		let bikeLoc = apiResponse.bikes[i].stolen_location
 		let bikeSerial = apiResponse.bikes[i].serial;
+		bikeMfgTally.push(apiResponse.bikes[i].manufacturer_name);
+		console.log(bikeMfgTally);
 		const display1 = document.createElement("h4");
 		const display2 = document.createElement("p");
 		resultDisplay.append(display1);
@@ -22,13 +32,16 @@ export function bikesResult(apiResponse){
 		display2.append(`Color: ${bikeColors.join(" ")} Serial Number: ${bikeSerial}`);
     display1.after(display2);
 	}
+	resultDisplay.removeAttribute("class", "hidden");
+	resultDisplay.setAttribute("class", "result-display")
 }
 
-export function bikesError(apiRequest, apiResponse){
+export function bikesError(apiRequest){
+	console.log(apiRequest);
 	const resultDisplay = document.getElementById("result-display");
 	document.getElementById("result-display").innerHTML = null;
 	const displayError = document.createElement("h4")
-	let errorMsg = `Results cannot be displayed: ${apiRequest.status} ${apiRequest.statusText} // ${apiResponse.message}`
+	let errorMsg = `Results cannot be displayed: ${apiRequest.status} ${apiRequest.statusText}`
 	resultDisplay.after(displayError);
 	displayError.append(errorMsg);
 }

@@ -4,22 +4,27 @@
     <title>Bike Api</title>
   </head>
   <body>
-    <h1>Please Enter a City/ Zipcode and select a Mile Radius.</h1>
-    <h3>City is formatted with *city name* , *state initial* Ex: Los Angeles, CA</h3>
-    <form id="user-input">
-      <label for="loc-input">(City, State Initial) / Zipcode</label>
-      <input type="text" name="loc-input" id="loc-input">
-      <select name="miles" id="miles-radius">
-        <option value=""> -- Please Choose an Option --</option>
-        <option value="5">5 Miles</option>
-        <option value="10">10 Miles</option>
-        <option value="15">15 Miles</option>
-        <option value="25">25 Miles</option>
-      </select>
-      <button type="submit">Go find those bikes?</button>
-    </form>
-    <div class="result-box">
-      <h3 id="result-display">Results:</h3>
+		<div class="top-bar">
+			<h1>Bike Theft Tracker</h1>
+			<h2>Powered by bikeindex.org</h2>
+		</div>
+		<div class="search-box">
+			<h3>Please Enter a City/ Zipcode and select a Mile Radius.</h3>
+			<p>City is formatted with *city name* , *state initial* Ex: Los Angeles, CA</p>
+			<form id="user-input">
+				<label for="loc-input">(City, State Initial) / Zipcode</label>
+				<input type="text" name="loc-input" id="loc-input">
+				<select name="miles" id="miles-radius">
+					<option value=""> -- Please Choose an Option --</option>
+					<option value="5">5 Miles</option>
+					<option value="10">10 Miles</option>
+					<option value="15">15 Miles</option>
+					<option value="25">25 Miles</option>
+				</select>
+				<button type="submit">Go find those bikes?</button>
+			</form>
+		</div>
+    <div class="result-display hidden" id="result-box">
     </div>
   </body>
 </html>
